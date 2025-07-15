@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+
+{% block title %}CUSTOM ADMIN WORKING{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}" style="color: red; font-size: 24px;">
+        🔴 CUSTOM ADMIN IS WORKING! 🔴
+    </a>
+</h1>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+    body {
+        background-color: #ffcccc !important;
+    }
+    #header {
+        background: red !important;
+    }
+</style>
+{% endblock %}
