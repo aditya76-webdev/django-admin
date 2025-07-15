@@ -7,11 +7,17 @@ def publish_action(modeladmin,request,queryset):
     queryset.update(status='PUBLISHED')
 publish_action.short_description = "Mark selected items as published"
 
+@admin.action(description='Mark selected items as unpublished')
+def unpublish_action(modeladmin,request,queryset):
+    queryset.update(status='UNPUBLISHED')
+
+
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title','description' , 'rating','status')
     list_filter = ['rating']
     fields = ['title','description','status']
-    actions = [publish_action]
+    actions = [publish_action,unpublish_action]
 blog_site_admin.register(Post,PostAdmin)
 # Register your models here.
 
